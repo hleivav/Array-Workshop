@@ -115,7 +115,7 @@ public class NameRepository {
                 }
             }
         }
-        return newName;
+        return deleteNullElements(newName);
     }
 
 
@@ -140,7 +140,7 @@ public class NameRepository {
                 }
             }
         }
-        return newName;
+        return deleteNullElements(newName);
     }
 
 
@@ -196,6 +196,22 @@ public class NameRepository {
         }
     }
 
+    public static String [] deleteNullElements(String [] ArrayWithNulls){
+        int counter = 0;
 
+        for (String element : ArrayWithNulls){
+            if (element == null){
+                counter++;
+            }
+        }
+        String [] tempArray = new String[ArrayWithNulls.length - counter];
+        for (int i = 0; i < ArrayWithNulls.length; i++) {
+            if (ArrayWithNulls[i] != null){
+                tempArray[i] = ArrayWithNulls[i];
+            }
+
+        }
+        return tempArray;
+    }
 
 }
